@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>HTML 表格</title>
+</head>
+
+<body>
+
+    <p>有边框的表格</p>
+    <table border="1">
+
+        <th>
+            header 1
+        </th>
+        <th>
+            header 1
+        </th>
+        <tr>
+            <td>row1 ,cell1</td>
+            <td>row1 ,cell2</td>
+        </tr>
+        <tr>
+            <td>row2 ,cell1</td>
+            <td>row2 ,cell2</td>
+        </tr>
+    </table>
+
+    <p>
+        没有边框的表格
+        <table>
+            <tr>
+                <td>100</td>
+                <td>100</td>
+                <td>100</td>
+            </tr>
+            <tr>
+                <td>100</td>
+                <td>100</td>
+                <td>100</td>
+            </tr>
+        </table>
+    </p>
+
+    <hr>
+    <h4>水平显示表格表头</h4>
+    <table border="1">
+        <tr>
+            <th>name</th>
+            <th>age</th>
+            <th>height</th>
+        </tr>
+        <tr>
+            <td>dumignwei</td>
+            <td>28</td>
+            <td>163</td>
+
+        </tr>
+    </table>
+
+    <hr>
+    <h4>垂直标题:</h4>
+    <table border="1">
+        <tr>
+            <th>First Name:</th>
+            <td>Bill Gates</td>
+        </tr>
+        <tr>
+            <th>Telephone:</th>
+            <td>555 77 854</td>
+        </tr>
+        <tr>
+            <th>Telephone:</th>
+            <td>555 77 855</td>
+        </tr>
+    </table>
+
+    <h4>单元格跨两格:</h4>
+    <table border="1">
+        <tr>
+            <th>Name</th>
+            <th colspan="2">Telephone</th>
+        </tr>
+        <tr>
+            <td>Bill Gates</td>
+            <td>555 77 854</td>
+            <td>555 77 855</td>
+        </tr>
+    </table>
+
+    <h4>单元格跨两列:</h4>
+    <table border="1">
+        <tr>
+            <th>First Name</th>
+            <td>Bill Gates</td>
+        </tr>
+        <tr>
+            <th rowspan="2">Telephone</th>
+            <td>1576422</td>
+        </tr>
+        <tr>
+            <td>15764225</td>
+        </tr>
+    </table>
+
+    <h4>本例演示如何显示在不同的元素内显示元素。</h4>
+    <table border="1">
+        <tr>
+            <td>
+                <p>这是一个段落</p>
+                <p>这是另一个段落</p>
+            </td>
+
+            <td>
+                这个单元格包含一个表格:
+                <table border="1">
+                    <tr>
+                        <td>A</td>
+                        <td>B</td>
+                    </tr>
+                    <tr>
+                        <td>C</td>
+                        <td>D</td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+
+        <tr>
+            <td>
+                这个单元格包含一个列表
+                <ul>
+                    <li>apples</li>
+                    <li>bananas</li>
+                    <li>pineapples</li>
+                </ul>
+            </td>
+
+            <td>
+                <label>Hello</label>
+            </td>
+        </tr>
+
+
+    </table>
+
+    <h4>有单元格边距:</h4>
+    <table border="1" cellpadding="10">
+        <tr>
+            <td>First</td>
+            <td>Row</td>
+        </tr>
+        <tr>
+            <td>Second</td>
+            <td>Row</td>
+        </tr>
+    </table>
+
+    <h4>单元格间距="10":</h4>
+    <table border="1" cellspacing="10">
+        <tr>
+            <td>First</td>
+            <td>Row</td>
+        </tr>
+        <tr>
+            <td>Second</td>
+            <td>Row</td>
+        </tr>
+    </table>
+</body>
+
+</html>
