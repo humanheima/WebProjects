@@ -1,0 +1,20 @@
+/* css background */
+
+body {
+    /* background-color: #b0c4de; */
+    background-image:url('https://www.runoob.com/images/img_tree.png');
+    /* background-color:#cccccc; */
+    background-repeat:repeat-x;
+}
+
+h1 {
+    background-color: #6495ed;
+}
+
+p {
+    background-color: #e0ffff;
+}
+
+div {
+    background-color: #b0c4de;
+}
