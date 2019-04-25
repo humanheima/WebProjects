@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+
+</head>
+
+<body>
+
+    <div id="app-1">
+        <p>
+            {{foo}}
+        </p>
+
+        <button v-on:click='foo="baz"'>Change it</button>
+
+    </div>
+
+    <div id="app2">
+        <p>{{a}}</p>
+    </div>
+
+    <script src="instance.js"></script>
+</body>
+
+</html>

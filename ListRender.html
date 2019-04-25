@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+
+</head>
+
+<body>
+    <h4>
+        列表渲染
+    </h4>
+    <ul id="example-1">
+        <li v-for="item in items">{{item.message}}</li>
+    </ul>
+
+    <hr>
+
+    <div>在 v-for 块中，我们拥有对父作用域属性的完全访问权限。v-for 还支持一个可选的第二个参数为当前项的索引。</div>
+    <ul id="example-2">
+        <li v-for="(item,index) in items">
+            {{ parentMessage }} - {{ index }} - {{ item.message }}
+        </li>
+    </ul>
+
+    <hr>
+
+    <h4>一个对象的 v-for</h4>
+    <ul id="v-for-object" class="demo">
+        <li v-for="value in object">{{value}}</li>
+    </ul>
+
+    <h4>你也可以提供第二个的参数为键名：</h4>
+    <ul id="v-for-object1" class="demo">
+        <li v-for="(value, key) in object">
+            {{ key }}: {{ value }}
+        </li>
+    </ul>
+
+    <h4>第三个参数为索引：</h4>
+
+    <div id="v-for-object2" class="demo">
+        <div v-for="(value, key, index) in object">
+            {{ index }}. {{ key }}: {{ value }}
+        </div>
+    </div>
+
+    <h4>显示过滤/排序结果</h4>
+    <ul id="example-6" class="demo">
+        <li v-for="n in old(numbers)">{{ n }}</li>
+    </ul>
+    <h4>一段取值范围的 v-for</h4>
+
+    <div>
+        <!-- 不起作用啊 -->
+        <span v-for="n in 10">{{n}}</span>
+    </div>
+
+    <h4>v-for on a template</h4>
+    <ol id="example-7">
+        <template v-for="item in items">
+            <li>{{ item.text }}</li>
+        </template>
+    </ol>
+
+    <h4>v-for with v-if</h4>
+
+    <!-- 的代码只渲染了未完成的 todos。 -->
+    <ul id="example-8">
+        <li v-for="todo in todos" v-if="!todo.isComplete">
+            {{ todo }}
+        </li>
+    </ul>
+
+
+    <div id="example-9">
+        <ul v-if="todos.length">
+            <li v-for="todo in todos">
+                {{ todo }}
+            </li>
+        </ul>
+        <p v-else>No todos left!</p>
+    </div>
+
+    <h4>一个组件的 v-for</h4>
+
+    <div id="example-10">
+        <ol>
+            <todo-item v-for="item in groceryList" v-bind:todo="item" v-bind:key="item.id">
+
+            </todo-item>
+        </ol>
+
+    </div>
+
+    <h4>一个简单的 todo list 的完整例子：</h4>
+    <div id="todo-list-example">
+        <form v-on:submit.prevent="addNewTodo">
+            <label for="new-todo">Add a todo</label>
+            <input v-model="newTodoText" id="new-todo" placeholder="E.g. Feed the cat">
+            <button>Add</button>
+        </form>
+
+        <ul>
+            <li is="item-todo" v-for="(todo, index) in todos" v-bind:key="todo.id" v-bind:title="todo.title"
+                v-on:remove="todos.splice(index, 1)">
+            </li>
+        </ul>
+    </div>
+
+    <script src="ListRender.js"></script>
+
+</body>
+
+</html>
