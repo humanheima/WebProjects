@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>Vue.js 路由</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script src="https://unpkg.com/vue-router/dist/vue-router.js"></script>
+
+    <style>
+        ._active{
+            background-color : red;
+        }
+    </style>
+</head>
+
+<body>
+
+
+    <h1>Hello App!</h1>
+
+    <div>
+        用 Vue.js + Vue Router 创建单页应用，是非常简单的。使用 Vue.js ，<br>
+        我们已经可以通过组合组件来组成应用程序，当你要把 Vue Router 添加进来，<br>
+        我们需要做的是，将组件 (components)映射到路由 (routes)，然后告诉 Vue Router 在哪里渲染它们。<br>
+        下面是个基本例子
+    </div>
+
+    <div id="app">
+
+
+        <p>
+            <!-- 使用 router-link 组件来导航. -->
+            <!-- 通过传入 `to` 属性指定链接. -->
+            <!-- <router-link> 默认会被渲染成一个 `<a>` 标签 -->
+            <router-link to="/foo" active-class="_active">Go to Foo</router-link>
+            <router-link to="/bar" exact-active-class="_active">Go to Bar</router-link>
+        </p>
+        <!-- 路由出口 -->
+        <!-- 路由匹配到的组件将渲染在这里 -->
+        <router-view></router-view>
+    </div>
+
+    <br>
+    <br>
+    <div>&#60;router-link&#62; 相关属性</div>
+
+    <div>to</div>
+    <span>表示目标路由的链接。 当被点击后，内部会立刻把 to 的值传到 router.push()，所以这个值可以是一个字符串或者是描述目标位置的对象。</span>
+    <div>
+
+
+
+
+        <a href="https://www.runoob.com/vue2/vue-routing.html">Vue.js 路由
+        </a>
+    <script src="test11.js"></script>
+</body>
+
+</html>

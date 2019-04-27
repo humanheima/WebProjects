@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>Vue.js 自定义指令</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+
+<body>
+
+    <div id="app">
+        <p>页面载入时，input 元素自动获取焦点：</p>
+        <!-- 但是没获取到啊 -->
+        <input v-focus>
+    </div>
+
+    <div>我们也可以在实例使用 directives 选项来注册局部指令，这样指令只能在这个实例中使用</div>
+    <div id="app1">
+        <p>页面载入时，input 元素自动获取焦点：</p>
+        <input v-focus>
+    </div>
+
+    <div>钩子函数</div>
+    <ul>
+        <li>bind: 只调用一次，指令第一次绑定到元素时调用，用这个钩子函数可以定义一个在绑定时执行一次的初始化动作。
+
+        </li>
+        <li>inserted: 被绑定元素插入父节点时调用（父节点存在即可调用，不必存在于 document 中）。</li>
+        <li>update: 被绑定元素所在的模板更新时调用，而不论绑定值是否变化。通过比较更新前后的绑定值，可以忽略不必要的模板更新（详细的钩子函数参数见下）。</li>
+        <li>componentUpdated: 被绑定元素所在模板完成一次更新周期时调用。</li>
+        <li>unbind: 只调用一次， 指令与元素解绑时调用。</li>
+    </ul>
+
+    <div>钩子函数参数</div>
+    <ul>
+        <!-- 感觉el的意思是 element的缩写 -->
+        <li> el: 指令所绑定的元素，可以用来直接操作 DOM 。</li>
+        <li>binding: 一个对象，包含以下属性：</li>
+        <ul>
+            <li>name: 指令名，不包括 v- 前缀。</li>
+            <li>value: 指令的绑定值， 例如： v-my-directive="1 + 1", value 的值是 2。</li>
+            <li>oldValue: 指令绑定的前一个值，仅在 update 和 componentUpdated 钩子中可用。无论值是否改变都可用。</li>
+            <li>expression: 绑定值的表达式或变量名。 例如 v-my-directive="1 + 1" ， expression 的值是 "1 + 1"。</li>
+            <li>arg: 传给指令的参数。例如 v-my-directive:foo， arg 的值是 "foo"。</li>
+            <li>modifiers: 一个包含修饰符的对象。 例如： v-my-directive.foo.bar, 修饰符对象 modifiers 的值是 { foo: true, bar: true }。</li>
+            <li>vnode: Vue 编译生成的虚拟节点。</li>
+            <li>oldVnode: 上一个虚拟节点，仅在 update 和 componentUpdated 钩子中可用。</li>
+        </ul>
+    </ul>
+    <div>以下实例演示了这些参数的使用</div>
+
+    <div id="app2" v-runoob:hello.a.b="message"></div>
+
+    <br>
+    <br>
+
+    <div>指令函数可接受所有合法的 JavaScript 表达式，以下实例传入了 JavaScript 对象</div>
+    <div id="app3">
+        <div v-runoob1="{ color: 'green', text: '菜鸟教程!' }"></div>
+    </div>
+    <script src="test10.js"></script>
+</body>
+
+</html>

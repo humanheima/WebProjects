@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>Vue.js事件处理器</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+
+<body>
+
+    <div>
+        事件监听可以使用 v-on 指令
+    </div>
+
+    <div id="app">
+        <button v-on:click='counter+=1'>增加1</button>
+        <p>
+            这个按钮被点击了 {{ counter }} 次。
+        </p>
+    </div>
+
+    <br>
+    <div>v-on 可以接收一个定义的方法来调用。</div>
+    <div id="app1">
+        <button v-on:click='greet'>Greet</button>
+    </div>
+    <br>
+    <div>除了直接绑定到一个方法，也可以用内联 JavaScript 语句</div>
+    <div id="app2">
+
+        <button v-on:click='say("hi")'>Say hi</button>
+        <br>
+        <button v-on:click='say("what")'>Say what</button>
+
+    </div>
+
+    <div>
+        事件修饰符,Vue.js通过由点(.)表示的指令后缀来调用修饰符。
+        <br>
+        <ol>
+            <li>.stop</li>
+            <li>.prevent</li>
+            <li>.capture</li>
+            <li>.self</li>
+            <li>.once</li>
+        </ol>
+        <p></p>
+
+        <br>
+        
+    </div>
+
+    <script src="test7.js"></script>
+</body>
+
+</html>

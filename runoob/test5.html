@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>Vue.js 监听属性</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+
+</head>
+
+<body>
+
+    <div id="app">
+        <p style="font-size:25px">计数器：{{counter}}</p>
+        <button @click="counter++" style="font-size:25px">click me</button>
+    </div>
+
+    <hr>
+
+    <div>以下实例进行千米与米之间的换算</div>
+    <div id="computed_props">
+        千米：<input type="text" v-model="kilometers">
+        米：<input type="text" v-model="meters">
+    </div>
+    <p id="info">
+
+    </p>
+
+    <hr>
+    <div>通过vue监听事件实现一个简单的购物车 </div>
+
+    <div id="app1">
+        <table>
+            <tr>
+                <th>序号</th>
+                <th>商品名称</th>
+                <th>商品价格</th>
+                <th>购买数量</th>
+                <th>操作</th>
+            </tr>
+            <tr v-for="iphone in Ip_Json">
+                <td>{{iphone.id}}</td>
+                <td>{{ iphone.name }}</td>
+                <td>{{ iphone.price }}</td>
+
+                <td>
+                    <button v-bind:disabled="iphone.count===0" v-on:click="iphone.count-=1">-</button>
+                    {{iphone.count}}
+                    <button v-on:click="iphone.count+=1">+</button>
+                </td>
+                <td>
+                    <button v-on:click="iphone.count=0">移除</button>
+                </td>
+            </tr>
+        </table>
+
+        <p>
+            总价：${{totalPrice()}}
+
+        </p>
+    </div>
+
+    <script src="test5.js">
+    </script>
+</body>
+
+</html>

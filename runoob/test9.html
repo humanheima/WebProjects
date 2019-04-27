@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>Vue.js 组件</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+
+<body>
+
+    <div>
+        组件（Component）是 Vue.js 最强大的功能之一。
+        <br>
+        组件可以扩展 HTML 元素，封装可重用的代码。
+        <br>
+
+        组件系统让我们可以用独立可复用的小组件来构建大型应用，几乎任意类型的应用的界面都可以抽象为一个组件树：
+
+        <br>
+        <br>
+        <a href="https://www.runoob.com/vue2/vue-component.html">Vue.js 组件</a>
+
+        <div>全局组件</div>
+        <div id="app">
+            <runoob></runoob>
+        </div>
+    </div>
+
+    <div>局部组件<br>
+        我们也可以在实例选项中注册局部组件，这样组件只能在这个实例中使用
+    </div>
+
+    <div id="app1">
+        <runoob1></runoob1>
+    </div>
+
+
+    <div>Prop<br>
+        prop 是父组件用来传递数据的一个自定义属性。<br>
+        父组件的数据需要通过 props 把数据传给子组件，子组件需要显式地用 props 选项声明 "prop"：
+    </div>
+
+    <div id="app2">
+        <child message='Hello world'></child>
+
+    </div>
+
+    <br>
+    <div>动态 Prop<br>类似于用 v-bind 绑定 HTML 特性到一个表达式，也可以用 v-bind 动态绑定 props 的值到父组件的数据中。每当父组件的数据变化时，该变化也会传导给子组件</div>
+    <br>
+    <div id="app3">
+        <div>
+            <input v-model="parentMsg">
+            <br>
+            <child1 v-bind:message="parentMsg"></child1>
+        </div>
+
+        <br>
+        <div>以下实例中 v-bind 指令将 todo 传到每一个重复的组件中</div>
+
+    </div>
+
+    <div id="app4">
+        <ol>
+            <todo-item v-for="item in sites" v-bind:todo="item"></todo-item>
+        </ol>
+    </div>
+
+    <div>自定义事件:父组件是使用 props 传递数据给子组件，但如果子组件要把数据传递回去，就需要使用自定义事件！
+        <br>使用 $on(eventName) 监听事件
+        <br>使用 $emit(eventName) 触发事件
+    </div>
+
+    <div id="app5">
+
+        <div id="counter-event-example">
+            <p>{{ total }}</p>
+            <button-counter v-on:increment="incrementTotal"></button-counter>
+            <button-counter v-on:increment="incrementTotal"></button-counter>
+        </div>
+    </div>
+
+
+    <div id="components-demo3" class="demo">
+            <button-counter2></button-counter2>
+            <button-counter2></button-counter2>
+            <button-counter2></button-counter2>
+        </div>
+
+
+    <script src="test9.js"></script>
+</body>
+
+</html>

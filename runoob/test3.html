@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Vue.js循环语句</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+
+</head>
+
+<body>
+
+    <div>循环使用 v-for 指令。v-for 可以绑定数据到数组来渲染一个列表</div>
+
+    <div id="app">
+        <ol>
+            <li v-for='site in sites'>{{site.name}}</li>
+        </ol>
+    </div>
+
+    <div>模板中使用v-for</div>
+
+    <div id="app1">
+        <ul>
+            <template v-for="site in sites">
+                <li>{{site.name}}</li>
+                <li>---------</li>
+            </template>
+        </ul>
+    </div>
+    <hr>
+    <div>v-for 迭代对象</div>
+    <div id="app2">
+        <ul>
+            <li v-for="value in object">
+                {{ value }}
+            </li>
+        </ul>
+    </div>
+
+    <hr>
+    <div>v-for 迭代对象的value key and index</div>
+
+    <div id="app3">
+        <ul>
+            <li v-for="(value ,key,index) in object">
+                {{ index }}. {{ key }} : {{ value }}
+            </li>
+        </ul>
+    </div>
+
+    <div>v-for 迭代整数</div>
+
+    <div id="app4">
+        <ul>
+            <li v-for="n in 10">
+                {{ n }}
+            </li>
+        </ul>
+    </div>
+    <script src="test3.js"></script>
+</body>
+
+</html>

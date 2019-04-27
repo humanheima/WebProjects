@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>Vue.js样式绑定</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+
+    <style>
+        .active {
+            width: 100px;
+            height: 100px;
+            background: green;
+        }
+
+        .text-danger {
+            background: red
+        }
+
+        .base {
+            width: 100px;
+            height: 100px;
+        }
+    </style>
+</head>
+
+<body>
+    <div>
+        class 与 style 是 HTML 元素的属性，用于设置元素的样式，我们可以用 v-bind 来设置样式属性。
+    </div>
+
+    <div>class 属性绑定</div>
+
+    <div id="app">
+        <div class="static" v-bind:class='{active:isActive,"text-danger":hasError}'></div>
+    </div>
+
+    <div>我们也可以直接绑定数据里的一个对象</div>
+    <div id="app1">
+        <div v-bind:class='classObject'></div>
+    </div>
+    <div>我们也可以在这里绑定返回对象的计算属性</div>
+    <div id="app2">
+        <div v-bind:class='classObject'></div>
+    </div>
+
+    <hr>
+    <div>我们可以把一个数组传给 v-bind:class </div>
+    <div id="app3">
+        <div v-bind:class="[activeClass, errorClass]"></div>
+    </div>
+
+    <div>我们还可以使用三元表达式来切换列表中的 class</div>
+    <div id="app4">
+        <div v-bind:class="[errorClass ,isActive ? activeClass : '']"></div>
+    </div>
+
+    <div>Vue.js style(内联样式)我们可以在 v-bind:style 直接设置样式</div>
+
+    <div id="app5">
+        <div v-bind:style="{color:activeColor , fontSize:fontSize +'px'}">菜鸟教程</div>
+    </div>
+
+    <div>也可以直接绑定到一个样式对象，让模板更清晰</div>
+
+    <div id="app6">
+        <div v-bind:style="styleObject">菜鸟教程</div>
+    </div>
+
+    <hr>
+    <div>v-bind:style 可以使用数组将多个样式对象应用到一个元素上</div>
+
+    <div id="app7">
+        <div v-bind:style="[baseStyles, overridingStyles]">菜鸟教程</div>
+    </div>
+    <script src="test6.js"></script>
+</body>
+
+</html>
