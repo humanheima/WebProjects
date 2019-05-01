@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <style>
+        ul {
+            /*  移除列表前小标志。 */
+            list-style-type: none;
+            /* 移除浏览器的默认设置将边距和填充设置为0 */
+            margin: 0;
+            padding: 0;
+            width: 200px;
+            background-color: #f1f1f1;
+            border: 1px solid #555;
+        }
+
+        li{
+            text-align: center;
+            border-bottom: 1px solid #555;
+        }
+
+        /* 最后一个元素没有底部的边框 */
+        li:last-child{
+            border-bottom: none;
+        }
+        li a {
+            display: block;
+            color: #000;
+            padding: 8px 16px;
+            text-decoration: none;
+        }
+
+        li a.active {
+            background-color: #4CAF50;
+            color: white;
+        }
+
+        /* 鼠标移动到选项上修改背景颜色 */
+        /* li a:hover {
+            background-color: #555;
+            color: white;
+        } */
+
+        /* 这个是啥意思啊？就是 id 为active的元素没有这个效果 */
+        li a:hover:not(.active) {
+            background-color: #555;
+            color: white;
+        }
+    </style>
+</head>
+
+<body>
+
+    <ul>
+        <li><a class="active" href="#home">主页</a></li>
+        <li><a href="#news">新闻</a></li>
+        <li><a href="#contact">联系</a></li>
+        <li><a href="#about">关于</a></li>
+    </ul>
+
+</body>
+
+</html>

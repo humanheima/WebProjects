@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <style>
+        #overflowTest {
+            background: #4CAF50;
+            color: white;
+            padding: 15px;
+            width: 80%;
+            height: 100px;
+            overflow: scroll;
+            border: 1px solid #ccc;
+        }
+
+        table {
+            border-collapse: collapse;
+        }
+
+        table,
+        th,
+        td {
+            border: 1px solid black;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>CSS 布局 - Overflow</h1>
+    <div>CSS overflow 属性用于控制内容溢出元素框时显示的方式。</div>
+    <div id="overflowTest">
+        <p>这里的文本内容是可以滚动的，滚动条方向是垂直方向。</p>
+        <p>这里的文本内容是可以滚动的，滚动条方向是垂直方向。</p>
+        <p>这里的文本内容是可以滚动的，滚动条方向是垂直方向。</p>
+        <p>这里的文本内容是可以滚动的，滚动条方向是垂直方向。</p>
+        <p>这里的文本内容是可以滚动的，滚动条方向是垂直方向。</p>
+        <p>这里的文本内容是可以滚动的，滚动条方向是垂直方向。</p>
+    </div>
+
+    <div>CSS overflow 属性可以控制内容溢出元素框时在对应的元素区间内添加滚动条。overflow属性有以下值：</div>
+    <table>
+        <th>value</th>
+        <th>description</th>
+        <tr>
+            <td>visible</td>
+            <td>默认值。内容不会被修剪，会呈现在元素框之外。</td>
+        </tr>
+        <tr>
+            <td>hidden</td>
+            <td>内容会被修剪，并且其余内容是不可见的。</td>
+        </tr>
+        <tr>
+            <td>scroll</td>
+            <td>内容会被修剪，但是浏览器会显示滚动条以便查看其余的内容。</td>
+        </tr>
+        <tr>
+            <td>auto</td>
+            <td>如果内容被修剪，则浏览器会显示滚动条以便查看其余的内容。</td>
+        </tr>
+        <tr>
+            <td>inherit</td>
+            <td>规定应该从父元素继承 overflow 属性的值。</td>
+        </tr>
+
+    </table>
+    ​
+
+</body>
+
+</html>

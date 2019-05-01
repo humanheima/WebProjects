@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+    <style>
+        ul.a {
+            list-style-type: circle;
+        }
+
+        ul.b {
+            list-style-type: square;
+        }
+
+        ol.c {
+            list-style-type: upper-roman;
+        }
+
+        ol.d {
+            list-style-type: lower-alpha;
+        }
+
+        ul.ex {
+            margin-left: 200px;
+            list-style-image: url("images/strawberry.png")
+        }
+
+        ul.ex1 {
+            list-style-type: none;
+            padding: 0px;
+            margin: 0px;
+        }
+
+        /* ul class 为 ex1 的li的样式 */
+        ul.ex1 li {
+            background-image: url("images/donut.png");
+            background-repeat: no-repeat;
+            background-position: 0px 5px;
+            padding-left: 14px;
+        }
+
+        ul.ex2 {
+            list-style: square url("images/donut.png")
+        }
+    </style>
+
+</head>
+
+<body>
+
+    <h1>
+        CSS 列表
+
+    </h1>
+    <div>
+        CSS列表属性作用如下：
+        <ul>
+            <li>设置不同的列表项标记为有序列表</li>
+            <li>设置不同的列表项标记为无序列表 </li>
+            <li>设置列表项标记为图像</li>
+        </ul>
+    </div>
+
+    <p>无序列表实例:</p>
+
+    <ul class="a">
+        <li>Coffee</li>
+        <li>Tea</li>
+        <li>Coca Cola</li>
+    </ul>
+
+    <ul class="b">
+        <li>Coffee</li>
+        <li>Tea</li>
+        <li>Coca Cola</li>
+    </ul>
+
+    <p>有序列表实例:</p>
+
+    <ol class="c">
+        <li>Coffee</li>
+        <li>Tea</li>
+        <li>Coca Cola</li>
+    </ol>
+
+    <ol class="d">
+        <li>Coffee</li>
+        <li>Tea</li>
+        <li>Coca Cola</li>
+    </ol>
+
+    <h2>作为列表项标记的图像</h2>
+    <div>要指定列表项标记的图像，使用列表样式图像属性</div>
+
+    <ul class="ex">
+        <li>Coffee</li>
+        <li>Tea</li>
+        <li>Coca Cola</li>
+
+    </ul>
+
+    <h2>浏览器兼容性解决方案</h2>
+
+    <ul class="ex1">
+        <li>Coffee</li>
+        <li>Tea</li>
+        <li>Coca Cola</li>
+    </ul>
+
+    <ul class="ex2">
+        <li>Coffee</li>
+        <li>Tea</li>
+        <li>Coca Cola</li>
+    </ul>
+
+</body>
+
+</html>

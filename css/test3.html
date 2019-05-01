@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+    <title>菜鸟教程(runoob.com)</title>
+
+    <style>
+        body {
+            background-color: #b0c4de;
+        }
+
+        h1 {
+            background-color: #6495ed;
+        }
+
+        p {
+            background-color: #e0ffff;
+        }
+
+        div {
+            background-color: #b0c4de;
+        }
+
+        #para1 {
+            background-image: url("https://img-my.csdn.net/uploads/201407/26/1406383299_1976.jpg")
+        }
+
+        #para2 {
+            background-image: url("https://img-my.csdn.net/uploads/201407/26/1406383299_1976.jpg");
+            /* 水平平铺 */
+            background-repeat: repeat-x;
+            /* 竖直平铺 */
+            /* background-repeat: repeat-y; */
+        }
+
+        #para3 {
+            background-image: url("https://img-my.csdn.net/uploads/201407/26/1406383299_1976.jpg");
+            /* 不平铺 */
+            background-repeat: no-repeat;
+            background-position: left bottom;
+        }
+
+        #para4 {
+            background: #e0ffff url("https://img-my.csdn.net/uploads/201407/26/1406383299_1976.jpg") no-repeat bottom right;
+            margin-left: 20px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <h1>CSS 背景</h1>
+    <p>CSS 背景属性用于定义HTML元素的背景。</p>
+    <p>CSS 属性定义背景效果:</p>
+    <ul>
+        <li>background-color</li>
+        <li>background-image</li>
+        <li>background-repeat</li>
+        <li>background-attachment</li>
+        <li>background-position</li>
+    </ul>
+    <p>
+        你可以看到这个段落是
+        被设定的 CSS 渲染的。
+    </p>
+    <p><a href="https://www.runoob.com" target="_blank">
+            这是一个链接</a></p>
+
+
+    <p id="para1" style="width:100% ;height:400px">
+        <span style="color:yellow">背景图像</span>
+    </p>
+
+    <hr>
+
+    <p id="para2" style="width:100% ;height:400px">
+        <span style="color:yellow">背景图像 - 水平或垂直平铺</span>
+    </p>
+
+    <p id="para3" style="width:400px ;height:400px">
+        <span style="color:yellow">背景图像- 设置定位与不平铺</span>
+    </p>
+    <p id="para4" style="width:400px ;height:600px">
+        <span style="color:yellow">背景- 简写属性<br></span>
+    </p>
+
+    <dvi>当使用简写属性时，属性值的顺序为：
+            <ul>
+                <li>background-color
+                </li>
+                <li> background-image</li>
+                <li>background-repeat
+                </li>
+                <li>background-attachment 背景图像是否固定或者随着页面的其余部分滚动。</li>
+                <li> background-position</li>
+            </ul>
+        </dvi>
+
+</body>
+
+</html>

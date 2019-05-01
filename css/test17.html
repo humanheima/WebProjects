@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <style>
+        a:link {
+            color: #000000;
+        }
+
+        a:visited {
+            color: #00FF00;
+        }
+
+        a:hover {
+            color: #FF00FF;
+        }
+
+        a:active {
+            color: #0000FF;
+        }
+
+        a.red:visited {
+            color: #FF0000;
+        }
+
+        /*匹配第一个 <p> 元素 ,如果元素的第一个子元素不是p，则没有作用 */
+        p:first-child {
+            color: blue;
+        }
+
+        /* 匹配所有<p> 元素中的第一个 <i> 元素 */
+        p>i:first-child {
+            color: blue;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>CSS 伪类(Pseudo-classes)</h1>
+    <hr>
+    <div>CSS伪类是用来添加一些选择器的特殊效果。</div>
+    <hr>
+    <h2>语法</h2>
+    <idv>伪类的语法</idv>
+    <div>selector:pseudo-class {property:value;}</div>
+    <br>
+    <div>CSS类也可以使用伪类：</div>
+    <br>
+    <div>selector.class:pseudo-class {property:value;}</div>
+
+
+    <p>This is some text.</p>
+    <p>This is some text.</p> 
+
+    <p><b><a href="/css/" target="_blank">这是一个链接</a></b></p>
+    <p><b>注意：</b> a:hover 必须在 a:link 和 a:visited 之后，需要严格按顺序才能看到效果。</p>
+    <p><b>注意：</b> a:active 必须在 a:hover 之后。</p>
+
+    <a class="red" href="/css/">CSS 语法</a>
+
+
+
+    <p>I am a <i>strong</i> man. I am a <i>strong</i> man.</p>
+    <p>I am a <i>strong</i> man. I am a <i>strong</i> man.</p>
+</body>
+
+</html>
