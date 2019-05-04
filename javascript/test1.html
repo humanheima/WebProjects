@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>菜鸟教程(runoob.com)</title>
+</head>
+
+<body>
+
+    <h1>本例使用函数来构造对象</h1>
+    <script>
+        function person(firstname, lastname, age, eyecolor) {
+            this.firstname = firstname;
+            this.lastname = lastname;
+            this.age = age;
+            this.eyecolor = eyecolor;
+        }
+        myFather = new person("John", "Doe", 50, "blue");
+        document.write(myFather.firstname + " is " + myFather.age + " years old.");
+
+        document.write('<br>')
+        document.write('<br>')
+        document.write('<br>')
+        // 循环遍历对象 "person" 的属性。
+
+        var x;
+        var text = "";
+        var person = { fname: "Bill", lname: "Gates", age: 56 };
+        for (x in person) {
+            text = text + person[x];
+        }
+
+        document.write(text);
+    </script>
+
+</body>
+
+</html>

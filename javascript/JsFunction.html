@@ -7,6 +7,10 @@
         function myFunction() {
             alert("Hello World!");
         }
+
+        // 匿名函数
+        var x = function (a, b) { return a * b };
+        document.getElementById("demo").innerHTML = x(4, 3);
     </script>
 </head>
 
@@ -21,14 +25,22 @@
         }
     </script>
 
-<p>函数存储在变量后，变量可作为函数使用：</p>
-<p id="demo"></p>
-<script>
-    // 匿名函数
-var x = function (a, b) {return a * b};
-document.getElementById("demo").innerHTML = x(4, 3);
-</script>
+    <p>函数存储在变量后，变量可作为函数使用：</p>
+    <p id="demo"></p>
 
+    <p>设置参数的默认值。</p>
+    <p id="demo1"></p>
+    <p id="demo2"></p>
+
+    <script>
+        function functionWithDefaultParams(x, y = 10) {
+            // 如果不传入参数 y ，则其默认值为 10
+            return x + y;
+        }
+
+        document.getElementById("demo1").innerHTML = functionWithDefaultParams(0, 2);
+        document.getElementById("demo2").innerHTML = functionWithDefaultParams(5);
+    </script>
 
 </body>
 
