@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+
+<body>
+    <div id="example">
+        <ul id="demo">
+            <li v-for='(item,index) in items'>
+                {{ parentMessage }} - {{ index }} - {{ item.msg }}
+            </li>
+        </ul>
+    </div>
+    <div id='exampleObject'>
+        <ul id="repeat-object">
+            <li v-for='(value,name) in primitiveValues'>{{name}}:{{value}}</li>
+            <li>===</li>
+            <li v-for="(value,name) in objectValues">{{name}}:{{value.msg}}</li>
+        </ul>
+    </div>
+
+    </div>
+    <div>
+        <!-- 演示过滤作用 -->
+        <ul id="demo2">
+
+            <li v-for="n in evenNumbers">{{ n }}</li>
+        </ul>
+    </div>
+   
+    <div>
+            <span v-for="n in 10">{{ n }} </span>
+    </div>
+
+    <div>
+        <a href="https://cn.vuejs.org/v2/guide/list.html">列表渲染</a>
+    </div>
+
+    <script>
+        var demo = new Vue({
+            el: '#demo',
+            data: {
+                parentMessage: '滴滴',
+                items: [
+                    { msg: '顺风车' },
+                    { msg: '专车' }
+                ]
+            }
+        })
+        var demo1 = new Vue({
+            el: '#repeat-object',
+            data: {
+                primitiveValues: {
+                    firstName: 'dd',
+                    lastName: 'fe',
+                    age: 4
+                },
+                objectValues: {
+                    one: {
+                        msg: 'oneMsg'
+                    },
+                    two: {
+                        msg: 'twoMsg'
+                    }
+                }
+            }
+        })
+        var demo2 = new Vue({
+            el: '#demo2',
+            data: {
+                numbers: [1, 2, 3, 4, 5]
+            },
+            computed: {
+                evenNumbers: function () {
+                    return this.numbers.filter(function (number) {
+                        return number % 2 === 0
+                    })
+                }
+            }
+        })
+
+    </script>
+
+</body>
+
+</html>

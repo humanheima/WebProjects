@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script src="https://cdn.jsdelivr.net/lodash/4.13.1/lodash.js"></script>
+</head>
+
+<body>
+    <div id="example">
+
+        <input v-model.number="age" type="number">
+        <br />
+        <input v-model.lazy='msg'>
+        <br />
+        {{msg}}
+
+    </div>
+    <br />
+
+    <!--使用 lodash 库中的debounce 函数-->
+    <div id="debounce-search-demo">
+        <input v-model="searchQuery" placeholder="Type something">
+        <strong>{{ searchIndicator }}</strong>
+    </div>
+
+
+    <script src="test4.js"> </script>
+
+</body>
+
+</html>
