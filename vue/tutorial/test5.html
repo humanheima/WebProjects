@@ -22,13 +22,7 @@
     </div>
 
     </div>
-    <div>
-        <!-- 演示过滤作用 -->
-        <ul id="demo2">
-
-            <li v-for="n in evenNumbers">{{ n }}</li>
-        </ul>
-    </div>
+    
    
     <div>
             <span v-for="n in 10">{{ n }} </span>
@@ -67,19 +61,7 @@
                 }
             }
         })
-        var demo2 = new Vue({
-            el: '#demo2',
-            data: {
-                numbers: [1, 2, 3, 4, 5]
-            },
-            computed: {
-                evenNumbers: function () {
-                    return this.numbers.filter(function (number) {
-                        return number % 2 === 0
-                    })
-                }
-            }
-        })
+        
 
     </script>
 

@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+
+    <style>
+        .active {
+            background-color: tan;
+        }
+
+        .textStyle {
+            font-size: 30px;
+            color: aqua;
+        }
+
+        .text-danger {
+            font-size: 30px;
+            color: red;
+        }
+    </style>
+</head>
+
+<body>
+
+    <h2>
+        绑定 HTML Class
+    </h2>
+    <hr>
+
+    <div id="demo1" v-bind:class="{ active: isActive }">
+        我们可以传给 v-bind:class 一个对象，以动态地切换 class
+    </div>
+
+    <hr>
+
+    <div>
+        你可以在对象中传入更多属性来动态切换多个 class。<br />
+        此外，v-bind:class 指令也可以与普通的 class 属性共存。
+    </div>
+
+    <div id="demo2" class="textStyle" v-bind:class="{ active: isActive, 'text-danger': hasError }">
+        v-bind:class 指令也可以与普通的 class 属性共存。
+    </div>
+
+    <hr>
+    <div>绑定的数据对象不必内联定义在模板里</div>
+
+    <div id="demo3" v-bind:class="classObject">
+        渲染的结果
+    </div>
+
+    <hr>
+
+    <div id="demo4" v-bind:class="classObject">
+        我们也可以在这里绑定一个返回对象的计算属性。这是一个常用且强大的模式</div>
+
+    <hr>
+
+    <div id="demo5" v-bind:class="[activeClass,errorClass]">
+        我们可以把一个数组传给 v-bind:class，以应用一个 class 列表
+    </div>
+
+    <div id="demo6">
+        <my-component></my-component>
+        <my-component></my-component>
+        <my-component></my-component>
+
+    </div>
+
+    <h2>
+        绑定内联样式
+    </h2>
+    <hr>
+    <div id="demo7" v-bind:style="{ color: activeColor, fontSize: fontSize + 'px' }">
+        对象语法<br />
+        v-bind:style 的对象语法十分直观——看着非常像 CSS，但其实是一个 JavaScript 对象。<br />
+        CSS 属性名可以用驼峰式 (camelCase) 或短横线分隔 (kebab-case，记得用引号括起来)来命名
+    </div>
+
+    <hr>
+    <div id="demo8" v-bind:style="styleObject">
+        直接绑定到一个样式对象通常更好，这会让模板更清晰
+    </div>
+    <div id="demo9" v-bind:style="[baseStyles, overridingStyles]">
+            v-bind:style 的数组语法可以将多个样式对象应用到同一个元素上
+    </div>
+
+    <script>
+
+        var vm1 = new Vue({
+            el: '#demo1',
+            data: {
+                isActive: true
+            }
+        })
+        var vm2 = new Vue({
+            el: '#demo2',
+            data: {
+                isActive: true,
+                // 改为true试试
+                hasError: false
+            }
+        })
+        var vm3 = new Vue({
+            el: '#demo3',
+            data: {
+                classObject: {
+                    active: true,
+                    'text-danger': true
+                }
+            }
+        })
+        var vm4 = new Vue({
+            el: '#demo4',
+            data: {
+                isActive: true,
+                error: null
+            },
+            computed: {
+                classObject: function () {
+                    return {
+                        active: this.isActive && !this.error,
+                        'text-danger': this.error && this.error.type === 'fatal'
+                    }
+                }
+            }
+        })
+
+        var vm5 = new Vue({
+            el: '#demo5',
+            data: {
+                activeClass: 'active',
+                errorClass: 'text-danger'
+            }
+        })
+
+        // 声明一个绑定class的组件
+        Vue.component('my-component', {
+            template: '<p class="active textStyle">Hi</p>'
+        })
+
+        var vm6 = new Vue({
+            el: '#demo6'
+        })
+        var vm7 = new Vue({
+            el: '#demo7',
+            data: {
+                activeColor: 'red',
+                fontSize: 30
+            }
+
+        })
+        var vm8 = new Vue({
+            el: '#demo8',
+            data: {
+                styleObject: {
+                    color: 'red',
+                    fontSize: '24px'
+                }
+            }
+        })
+
+        var vm9 = new Vue({
+            el: '#demo9',
+            data: {
+                baseStyles: {
+                    color: 'red',
+                    fontSize: '24px'
+                },
+                overridingStyles: {
+                    color: 'green',
+                }
+            }
+        })
+    </script>
+
+</body>
+
+</html>

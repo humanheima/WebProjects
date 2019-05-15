@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+
+    <style>
+        .textColor {
+            color: coral;
+        }
+    </style>
+
+</head>
+
+<body>
+
+    <h1>列表渲染</h1>
+
+    <div id="demo1">
+        用 <span class="textColor">v-for</span> 把一个数组对应为一组元素
+        <ul>
+            <li v-for='item in items'>
+                {{ item.message }}
+            </li>
+
+        </ul>
+
+        <button v-on:click="pushData">添加一个数据项</button>
+    </div>
+
+    <div>
+        在 v-for 块中，我们拥有对父作用域属性的完全访问权限。v-for 还支持一个可选的第二个参数为当前项的索引。
+        <ul id="demo2">
+            <li v-for='(item,index) of items'>
+                {{ parentMessage }} - {{ index }} - {{ item.message }}
+            </li>
+        </ul>
+    </div>
+
+    <h2>一个对象的 v-for</h2>
+    <hr>
+
+    <div>
+        <ul id="v-for-object">
+            <li v-for='(value,name,index) in object'>
+                {{index}}:
+                {{name}}:
+                {{value}}
+            </li>
+        </ul>
+    </div>
+
+    <hr>
+    <div id="demo4">
+        添加一个具有唯一值的 key 属性
+        <br>
+        <template v-if="loginType === 'username'">
+            <label>Username</label>
+            <input placeholder="Enter your username" key="username-input">
+        </template>
+        <template v-else>
+            <label>Email</label>
+            <input placeholder="Enter your email address" key="email-input">
+        </template>
+        <br>
+        <br>
+        <button v-on:click="toggleType">toggleType</button>
+    </div>
+
+    <h2>显示过滤/排序结果</h2>
+    <hr>
+
+    <div>
+        <ul id="demo5">
+
+            <li v-for="n in evenNumbers">{{ n }}</li>
+        </ul>
+    </div>
+
+    <div>
+        在计算属性不适用的情况下 (例如，在嵌套 v-for 循环中) 你可以使用一个 method 方法
+        <ul id="demo6">
+
+            <li v-for="n in even(numbers)">{{ n }}</li>
+        </ul>
+    </div>
+
+    <h2>一段取值范围的 v-for</h2>
+    <div id="demo7">
+        v-for 也可以取整数。在这种情况下，它将重复多次模板。<br>
+        <span v-for="n in 10">{{ n }} </span>
+    </div>
+
+    <h2>v-for on a &lt;template&gt;</h2>
+
+    <div>
+        <ul id="demo8">
+            <template v-for="item in items">
+                <li>{{ item.msg }}</li>
+            </template>
+        </ul>
+    </div>
+
+    <p>下面是一个简单的 todo list 的完整例子</p>
+    <div id="todo-list-example">
+
+        <form v-on:submit.prevent='addNewTodo'>
+            <label for="new-todo">Add a todo</label>
+            <input v-model='newTodoText' id="new-todo" placeholder="E.g. Feed the cat">
+
+            <button>Add</button>
+
+        </form>
+
+        <ul>
+            <li is="todo-item" v-for='(todo, index) in todos' v-bind:key='todo.id' v-bind:title='todo.title'
+                v-on:remove='todos.splice(index,1)'></li>
+        </ul>
+    </div>
+
+    <script>
+
+        var vm1 = new Vue({
+            el: '#demo1',
+            data: {
+                items: [
+                    { message: 'Foo' },
+                    { message: 'Bar' }
+                ]
+            },
+            methods: {
+                pushData() {
+                    this.items.push({ message: 'third' })
+                }
+            }
+        })
+        var vm2 = new Vue({
+            el: '#demo2',
+            data: {
+                parentMessage: "hello",
+                items: [
+                    { message: 'Foo' },
+                    { message: 'Bar' }
+                ]
+            }
+        })
+        var vm3 = new Vue({
+            el: '#v-for-object',
+            data: {
+                object: {
+                    age: 18,
+                    name: 'dmw',
+                    title: 'How to do lists in Vue',
+                    author: 'Jane Doe',
+                    publishedAt: '2016-04-10'
+                }
+            }
+
+        })
+        var vm4 = new Vue({
+            el: '#demo4',
+            data: {
+                loginType: 'username'
+            },
+            methods: {
+                toggleType: function () {
+                    if (this.loginType === 'username') {
+                        this.loginType = 'email'
+                    } else {
+                        this.loginType = 'username'
+                    }
+                }
+            }
+        })
+
+        var demo5 = new Vue({
+            el: '#demo5',
+            data: {
+                numbers: [1, 2, 3, 4, 5]
+            },
+            // 计算属性
+            computed: {
+                evenNumbers: function () {
+                    return this.numbers.filter(function (number) {
+                        return number % 2 === 0
+                    })
+                }
+            }
+        })
+
+        var demo6 = new Vue({
+            el: '#demo6',
+            data: {
+                numbers: [1, 2, 3, 4, 5]
+            },
+            // 计算属性
+            methods: {
+                even: function (number) {
+                    return number.filter(function (number) {
+                        return number % 2 === 0
+                    })
+                }
+            }
+        })
+        // 声明一个绑定class的组件
+        Vue.component('my-component', {
+            template: '<p class="active textStyle">Hi</p>'
+        })
+
+        var vm7 = new Vue({
+            el: '#demo7'
+        })
+
+        var vm8 = new Vue({
+            el: '#demo8',
+            data: {
+                items: [
+                    { msg: 'Foo' },
+                    { msg: 'Bar' }
+                ]
+            }
+        })
+
+        Vue.component('todo-item', {
+            template: '\
+    <li>\
+      {{ title }}\
+      <button v-on:click="$emit(\'remove\')">Remove</button>\
+    </li>\
+  ',
+            props: ['title']
+        })
+
+        new Vue({
+            el: '#todo-list-example',
+            data: {
+                newTodoText: '',
+                todos: [
+                    {
+                        id: 1,
+                        title: 'Do the dishes',
+                    },
+                    {
+                        id: 2,
+                        title: 'Take out the trash',
+                    },
+                    {
+                        id: 3,
+                        title: 'Mow the lawn'
+                    }
+                ],
+                nextTodoId: 4
+            },
+            methods: {
+                addNewTodo: function () {
+                    this.todos.push({
+                        id: this.nextTodoId++,
+                        title: this.newTodoText
+                    })
+                    this.newTodoText = ''
+                }
+            }
+        })
+
+    </script>
+
+</body>
+
+</html>

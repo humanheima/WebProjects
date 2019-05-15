@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+
+    <style>
+        .textColor{
+            color: coral;
+            font-size: 30px;
+        }
+    </style>
+
+</head>
+
+<body>
+
+    <h1>条件渲染</h1>
+
+
+    <div id="demo1">
+        v-if 指令用于条件性地渲染一块内容。这块内容只会在指令的表达式返回 truthy 值的时候被渲染。
+        <h1 v-if='awesome'>Vue is awesome!</h1>
+        <h1 v-else>Oh no 😢</h1>
+    </div>
+
+    <div id="demo2">
+        <p v-if="seen">现在你看到我了</p>
+        <template v-if="ok">
+            <h1>菜鸟教程</h1>
+            <p>学的不仅是技术，更是梦想！</p>
+            <p>哈哈哈，打字辛苦啊！！！</p>
+        </template>
+    </div>
+
+
+    <hr>
+    <h2>用 key 管理可复用的元素</h2>
+
+    <div id="demo3">
+
+        <template v-if="loginType === 'username'">
+            <label>Username</label>
+            <input placeholder="Enter your username">
+        </template>
+        <template v-else>
+            <label>Email</label>
+            <input placeholder="Enter your email address">
+        </template>
+        <br>
+        <br>
+        <button v-on:click="toggleType">toggleType</button>
+    </div>
+
+    <hr>
+    <div id="demo4">
+        添加一个具有唯一值的 key 属性
+        <br>
+        <template v-if="loginType === 'username'">
+            <label>Username</label>
+            <input placeholder="Enter your username" key="username-input">
+        </template>
+        <template v-else>
+            <label>Email</label>
+            <input placeholder="Enter your email address" key="email-input">
+        </template>
+        <br>
+        <br>
+        <button v-on:click="toggleType">toggleType</button>
+    </div>
+
+    <p class="textColor">v-show</p>
+    <hr>
+
+
+
+    <script>
+
+        var vm1 = new Vue({
+            el: '#demo1',
+            data: {
+                awesome: true
+            }
+        })
+        var vm2 = new Vue({
+            el: '#demo2',
+            data: {
+                seen: true,
+                ok: true
+            }
+        })
+        var vm3 = new Vue({
+            el: '#demo3',
+            data: {
+                loginType: 'username'
+            },
+            methods: {
+                toggleType: function () {
+                    if (this.loginType === 'username') {
+                        this.loginType = 'email'
+                    } else {
+                        this.loginType = 'username'
+                    }
+                }
+            }
+        })
+        var vm4 = new Vue({
+            el: '#demo4',
+            data: {
+                loginType: 'username'
+            },
+            methods: {
+                toggleType: function () {
+                    if (this.loginType === 'username') {
+                        this.loginType = 'email'
+                    } else {
+                        this.loginType = 'username'
+                    }
+                }
+            }
+        })
+
+        var vm5 = new Vue({
+            el: '#demo5',
+            data: {
+                activeClass: 'active',
+                errorClass: 'text-danger'
+            }
+        })
+
+        // 声明一个绑定class的组件
+        Vue.component('my-component', {
+            template: '<p class="active textStyle">Hi</p>'
+        })
+
+        var vm6 = new Vue({
+            el: '#demo6'
+        })
+        var vm7 = new Vue({
+            el: '#demo7',
+            data: {
+                activeColor: 'red',
+                fontSize: 30
+            }
+
+        })
+        var vm8 = new Vue({
+            el: '#demo8',
+            data: {
+                styleObject: {
+                    color: 'red',
+                    fontSize: '24px'
+                }
+            }
+        })
+
+        var vm9 = new Vue({
+            el: '#demo9',
+            data: {
+                baseStyles: {
+                    color: 'red',
+                    fontSize: '24px'
+                },
+                overridingStyles: {
+                    color: 'green',
+                }
+            }
+        })
+    </script>
+
+</body>
+
+</html>
