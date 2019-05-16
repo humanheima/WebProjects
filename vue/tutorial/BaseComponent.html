@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+
+    <style>
+        .demo-alert-box{
+            background-color: chocolate
+        }
+    </style>
+</head>
+
+<body class="native">
+
+    <h1>
+        组件基础
+    </h1>
+
+    <div id="components-demo">
+        <button-counter></button-counter>
+        <button-counter></button-counter>
+        <button-counter></button-counter>
+    </div>
+
+    <hr>
+    <div id="demo2">
+        <blog-post title="My journey with Vue"></blog-post>
+        <blog-post title="Blogging with Vue"></blog-post>
+        <blog-post title="Why Vue is so fun"></blog-post>
+    </div>
+
+    <hr>
+
+    <div id="demo3">
+        我们可以使用 v-bind 来动态传递 prop<br>
+        <blog-post v-for='post in posts' v-bind:key='post.id' v-bind:title='post.title'></blog-post>
+    </div>
+    <hr>
+
+    <div id="demo4">
+        接受一个单独的 post prop<br>
+        <div :style='{fontSize:postFontSize + "em"}'>
+            <blog-post-component v-for='post in posts' v-bind:key='post.id' v-bind:post='post'
+                v-on:enlarge-text="postFontSize += 0.1"></blog-post-component>
+        </div>
+        <div>字体大小跟上面的不一样</div>
+    </div>
+
+
+    <h3>使用事件抛出一个值 </h3>
+
+    <div id="demo5">
+        有的时候用一个事件来抛出一个特定的值是非常有用的。例如我们可能想让&lt;blog-post-component&gt;组件决定它的
+        <br>文本要放大多少。这时可以使用 ($emit) 的第二个参数来提供这个值
+        <br>
+        <div :style='{fontSize:postFontSize + "em"}'>
+            <blog-post-component-five v-for='post in posts' v-bind:key='post.id' v-bind:post='post'
+                v-on:enlarge-text="postFontSize += $event"></blog-post-component-five>
+        </div>
+        <div>字体大小跟上面的不一样</div>
+    </div>
+
+    <hr>
+    <p>在组件上使用 v-model</p>
+
+    <div id="demo6">
+
+        <custom-input v-model="searchText"></custom-input>
+
+        <p>{{searchText}}</p>
+    </div>
+
+    <h3>通过插槽分发内容</h3>
+
+    <div id="demo7">
+        <alert-box>
+            Something bad happened.
+        </alert-box>
+    </div>
+
+</body>
+
+<script>
+
+    Vue.component('button-counter', {
+        // 一个组件的 data 选项必须是一个函数
+        data: function () {
+            return {
+                count: 0
+            }
+        },
+        template: '<button v-on:click="count++"> you click me {{count}} times.</button>'
+    })
+
+    Vue.component('blog-post', {
+        props: ['title'],
+        template: '<h3>{{ title }}</h3>'
+    })
+
+    Vue.component('blog-post-component', {
+        props: ['post'],
+        template: `
+    <div>
+      <h3>{{ post.title }}</h3>
+      <button v-on:click="$emit('enlarge-text')">Enlarge text</button>
+      <div v-html="post.content"></div>
+    </div>
+  `
+    })
+
+    Vue.component('blog-post-component-five', {
+        props: ['post'],
+        template: `
+    <div>
+      <h3>{{ post.title }}</h3>
+      <button v-on:click="$emit('enlarge-text',0.1)">Enlarge text</button>
+      <div v-html="post.content"></div>
+    </div>
+  `
+    })
+
+    Vue.component('custom-input', {
+        props: ['value'],
+        template: `
+    <input
+      v-bind:value="value"
+      v-on:input="$emit('input', $event.target.value)"
+    >
+  `
+    })
+
+    Vue.component('alert-box', {
+        template: '<div class="demo-alert-box"> <strong>Error!</strong><slot></slot></div>'
+    })
+
+    var demo1 = new Vue({
+        el: '#components-demo',
+    })
+    var demo2 = new Vue({
+        el: '#demo2',
+    })
+
+    var demo3 = new Vue({
+        el: '#demo3',
+        data: {
+            posts: [
+                { id: 1, title: 'My journey with Vue' },
+                { id: 2, title: 'Blogging with Vue' },
+                { id: 3, title: 'Why Vue is so fun' }
+            ]
+        }
+    })
+    var demo4 = new Vue({
+        el: '#demo4',
+        data: {
+            posts: [
+                { id: 1, title: 'My journey with Vue', content: 'My journey with Vue content' },
+                { id: 2, title: 'Blogging with Vue', content: 'My journey with Vue content' },
+                { id: 3, title: 'Why Vue is so fun', content: 'My journey with Vue content' }
+            ],
+            postFontSize: 1.0
+        }
+    })
+    var demo5 = new Vue({
+        el: '#demo5',
+        data: {
+            posts: [
+                { id: 1, title: 'My journey with Vue5', content: 'My journey with Vue content5' },
+                { id: 2, title: 'Blogging with Vue5', content: 'My journey with Vue content5' },
+                { id: 3, title: 'Why Vue is so fun5', content: 'My journey with Vue content5' }
+            ],
+            postFontSize: 1.0
+        }
+    })
+
+
+    var demo6 = new Vue({
+        el: '#demo6',
+        data: {
+            searchText: ''
+        }
+    })
+    var demo7 = new Vue({
+        el: '#demo7',
+    })
+</script>
+
+</html>

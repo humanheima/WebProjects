@@ -24,7 +24,7 @@ var example2 = new Vue({
 })
 
 // 也可以用 JavaScript 直接调用方法
-example2.greet() // => 'Hello Vue.js!'
+//example2.greet() // => 'Hello Vue.js!'
 
 new Vue({
     el: '#example-3',

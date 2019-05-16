@@ -8,8 +8,10 @@
 
 <body>
 
+    <h1>事件处理</h1>
     <!-- 监听事件 -->
     <div id="example-1">
+        <!-- 直接把处理逻辑写在指令中了 -->
         <button v-on:click="counter += 1">Add 1</button>
         <p>The button above has been clicked {{ counter }} times.</p>
     </div>
@@ -21,7 +23,6 @@
     </div>
 
     <!-- 内联处理器中的方法 -->
-    <!-- 除了直接绑定到一个方法，也可以在内联 JavaScript 语句中调用方法： -->
     <div id="example-3">
         <button v-on:click="say('hi')">Say hi</button>
         <button v-on:click="say('what')">Say what</button>
@@ -32,9 +33,22 @@
     <div id="example-4">
         <button v-on:click="warn('Form cannot be submitted yet.', $event)">
             Submit
-          </button>
+        </button>
     </div>
 
+    <h2>事件修饰符</h2>
+    <hr>
+    <div>
+        <p>修饰符是由点开头的指令后缀来表示的。</p>
+        <ul>
+            <li>.stop</li>
+            <li>.prevent</li>
+            <li>.capture</li>
+            <li>.self</li>
+            <li>once</li>
+            <li>.passive</li>
+        </ul>
+    </div>
 
     <script src="EventHandle.js"></script>
 </body>
