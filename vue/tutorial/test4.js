@@ -3,7 +3,8 @@ new Vue({
     data: {
         age: '0',
         msg: '内容是在change事件后才改变的',
-        msg1: '内容是在5000ms后才改变的'
+        msg1: '内容是在5000ms后才改变的',
+        message:'    hello world      '
     }
 });
 

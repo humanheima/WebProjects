@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+
+    <style>
+        .header {
+            color: green
+        }
+
+        .main {
+            background-color: aquamarine
+        }
+
+        .footer {
+            color: greenyellow
+        }
+    </style>
+</head>
+
+<body>
+    <h1>学习递归组件</h1>
+
+    <div id="app">
+
+        <!-- 不起作用啊 -->
+        <child-component :count="1"></child-component>
+
+    </div>
+
+    <hr>
+    <h3>内联模版</h3>
+    <!-- 还是不起作用 -->
+    <div id="app1">
+        <child-component-1 inline-template>
+            <div>
+                <h2>在父组件中定义子组件的模板</h2>
+                <!-- <p>{{message}}</p> -->
+                <p>{{msg}}</p>
+            </div>
+        </child-component-1>
+    </div>
+
+    <!-- 还是不起作用 -->
+    <h3>动态组件</h3>
+
+    <div id="app2">
+        <component :is="currentView">
+            </compnent>
+            <button @click="handleChangeView('A')">切换到A</button>
+            <button @click="handleChangeView('B')">切换到B</button>
+            <button @click="handleChangeView('C')">切换到C</button>
+    </div>
+
+    <h3>nextTick</h3>
+    <div id="app3">
+        <div id="div" v-if="showDiv">这是一段文本</div>
+        <button @click="getText" 获取div内容>改变showDiv为ture</button>
+    </div>
+
+    <h3>X-Templates</h3>
+    <div id="app4">
+        <my-component>
+            <script type="text/x-template" id="my-component">
+                <div> 这是组件的内容</div>
+            </script>
+        </my-component>
+    </div>
+
+    <h3>手动挂载实例</h3>
+
+    <div id="mount-div">
+
+    </div>
+
+
+
+    <script>
+        Vue.component('child-component', {
+            name: 'child-component',
+            props: {
+                count: {
+                    type: Number,
+                    default: 1
+                }
+            },
+            template: '\
+            <div>\
+                <child-component\
+                    :count="count+1"\
+                    v-if="count < 3"></child-component>\
+            </div>'
+        })
+
+        var app = new Vue({
+            el: '#app'
+        })
+
+        Vue.component('child-component-1', {
+            data: function () {
+                return {
+                    msg: '在子组件声明的数据'
+                }
+            }
+        })
+
+        var app1 = new Vue({
+            el: '#app1',
+            data: {
+                message: '在父组件声明的数据'
+            }
+        })
+
+        var app2 = new Vue({
+            el: '#app',
+            components: {
+                comA: {
+                    template: '<div>组件A</div>'
+                },
+                comB: {
+                    template: '<div>组件B</div>'
+                },
+                comC: {
+                    template: '<div>组件C</div>'
+                },
+            },
+            data: {
+                currentView: 'comA'
+            },
+            methods: {
+                handleChangeView: function (component) {
+                    this.currentView = 'com' + component
+                }
+            }
+        })
+
+        var app3 = new Vue({
+            el: '#app3',
+            data: {
+                showDiv: false
+            },
+            methods: {
+                getText: function () {
+                    this.showDiv = true;
+                    this.$nextTick(function () {
+                        var text = document.getElementById('div').innerHTML;
+                        console.log(text)
+                    })
+
+                }
+            }
+        })
+
+        Vue.component('my-component',{
+            template:'#my-component'
+        })
+        var app4=new Vue({
+            el:'#app4'
+        })
+
+        var MyComponent=Vue.extend({
+            template:'<div>Hello {{name}}</div>',
+            data:function(){
+                return {
+                    name:'Aresn'
+                }
+            }
+        })
+        new MyComponent().$mount('#mount-div')
+    </script>
+</body>
+
+</html>

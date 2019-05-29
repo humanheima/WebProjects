@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+
+<body>
+
+    <div id="app">
+        <p>总数：{{total}}</p>
+        <my-component @increase='handleGetTotal' @reduce='handleGetTotal'>
+
+        </my-component>
+    </div>
+
+
+    <!-- 在自定义组件上使用v-model指令 -->
+    <div id="app1">
+        <p>总数：{{total}}</p>
+        <my-component-1 v-model="total">
+
+        </my-component-1>
+
+    </div>
+
+    <div id="app2">
+        <p>总数：{{total}}</p>
+        <my-component-2 v-model="total"></my-component-2>
+        <button @click='handleReduce'>-1</button>
+
+    </div>
+
+    <script>
+
+        Vue.component('my-component', {
+            template: '\
+            <div>\<button @click="handleIncrease">+1</button>\
+            <button @click="handleReduce">-1</button>\</div>',
+            data: function () {
+                return {
+                    counter: 0
+                }
+            },
+            methods: {
+                handleIncrease: function () {
+                    this.counter++;
+                    this.$emit('increase', this.counter)
+                },
+                handleReduce: function () {
+                    this.counter--;
+                    this.$emit('reduce', this.counter)
+                },
+            }
+        })
+
+        Vue.component('my-component-1', {
+            template: '<button @click="handleClick">+1</button>',
+            data: function () {
+                return {
+                    counter: 0
+                }
+            },
+            methods: {
+                handleClick: function () {
+                    this.counter++;
+                    this.$emit('input', this.counter)
+                }
+            }
+        })
+
+        var app = new Vue({
+            el: '#app',
+            data: {
+                total: 0
+            },
+            methods: {
+                handleGetTotal: function (total) {
+                    this.total = total;
+                }
+            }
+        })
+
+        var app1 = new Vue({
+            el: '#app1',
+            data: {
+                total: 0
+            },
+
+        })
+
+        Vue.component('my-component-2', {
+            props: ['value'],
+            template: '<input :value="value" @input="updateValue"/>',
+
+            methods: {
+                updateValue: function () {
+                    this.$emit('input', event.target.value)
+                }
+            }
+        })
+
+        var app2 = new Vue({
+            el: '#app2',
+            data: {
+                total: 0
+            },
+            methods:{
+                handleReduce:function(){
+                    this.total--;
+                }
+            }
+
+        })
+
+    </script>
+
+</body>
+
+</html>

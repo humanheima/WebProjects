@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+
+<body>
+
+    <div id="app">
+        <my-component></my-component>
+
+        <table>
+            <tbody is='my-component'></tbody>
+        </table>
+
+    </div>
+
+    <div id="app1">
+        <my-component-1></my-component-1>
+    </div>
+
+    <div id="app2">
+        <my-component-2 message='来自父组件的数据'></my-component-2>
+    </div>
+
+    <hr>
+    <div id="app3">
+        <input type="text" v-model='parentMessage'>
+
+        <my-component-2 :message='parentMessage'></my-component-2>
+    </div>
+
+    <div id="app4">
+        <my-component-3 message='[1,2,3]'></my-component-3>
+        <my-component-3 v-bind:message='[1,2,3]'></my-component-3>
+    </div>
+
+    <script>
+
+        var Child = {
+            template: '<div>局部注册组件的内容</div>'
+        }
+        var app = new Vue({
+            el: '#app',
+            data: {
+                text: ''
+            },
+            components: {
+                'my-component': Child
+            }
+        })
+
+        Vue.component('my-component-1', {
+            template: '<div>{{message}}</div>',
+            data: function () {
+                return {
+                    message: '组件内容'
+                }
+            }
+        })
+        var app1 = new Vue({
+            el: '#app1',
+
+        })
+
+        Vue.component('my-component-2', {
+            props: ['message'],
+            template: '<div>{{message}}</div>',
+        })
+        Vue.component('my-component-3', {
+            props: ['message'],
+            template: '<div>{{message.length}}</div>',
+        })
+        var app2 = new Vue({
+            el: '#app2',
+        })
+
+        var app3 = new Vue({
+            el: '#app3',
+            data: {
+                parentMessage: ''
+            }
+
+        })
+
+        var app4 = new Vue({
+            el: '#app4',
+            data: {
+                parentMessage: ''
+            }
+        })
+
+        var app5 = new Vue({
+            el: '#app5',
+            data: {
+                selected: ['html', 'js']
+            }
+        })
+
+        var app6 = new Vue({
+            el: '#app6',
+            data: {
+                options: [
+                    {
+                        text: 'HTML',
+                        value: 'html'
+
+                    },
+                    {
+                        text: 'JavaScript',
+                        value: 'js'
+
+                    },
+                    {
+                        text: 'CSS',
+                        value: 'css'
+
+                    },
+                ],
+                selected: 'html'
+            }
+        })
+
+        var app7 = new Vue({
+            el: '#app7',
+            data: {
+                picked: false,
+                value: 123
+            }
+        })
+
+        var app8 = new Vue({
+            el: '#app8',
+            data: {
+                toggle: false,
+                value1: 'a',
+                value2: 'b'
+            }
+        })
+        var app9 = new Vue({
+            el: '#app9',
+            data: {
+                selected: ''
+            }
+        })
+
+    </script>
+
+</body>
+
+</html>

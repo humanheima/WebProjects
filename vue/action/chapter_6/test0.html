@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+
+<body>
+
+    <div id="app">
+        <textarea v-model="text" placeholder="please input ...">
+                <p>输入的内容是：</p>
+                <p style="white-space:space">{{text}}</p>
+            </textarea>
+    </div>
+
+    <div id="app1">
+        <input type="text" @input='handleInput' placeholder="please input ...">
+        <p>输入的内容是：{{message}}</p>
+
+    </div>
+
+    <div id="app2">
+        <input type="radio" v-model='picked' value="html" id="html">
+        <label for="html">HTML</label>
+        <br>
+        <input type="radio" v-model='picked' value="js" id="js">
+        <label for="js">JS</label>
+        <br>
+        <input type="radio" v-model='picked' value="css" id="css">
+        <label for="css">CSS</label>
+        <br>
+        <p>选择的项是：{{picked}}</p>
+
+    </div>
+
+    <div id="app3">
+
+        <input type="checkbox" v-model='checked' value="html" id="html">
+        <label for="html">HTML</label>
+        <br>
+        <input type="checkbox" v-model='checked' value="js" id="js">
+        <label for="js">JS</label>
+        <br>
+        <input type="checkbox" v-model='checked' value="css" id="css">
+        <label for="css">CSS</label>
+        <br>
+        <p>选择的项是：{{checked}}</p>
+
+    </div>
+
+    <div id="app4">
+        <select v-model="selected">
+
+            <option>html</option>
+            <option value="js">JavaScript</option>
+            <option>css</option>
+        </select>
+
+        <p>选择的项是：{{selected}} </p>
+
+    </div>
+    <div id="app5">
+        <select v-model="selected" multiple>
+
+            <option>html</option>
+            <option value="js">JavaScript</option>
+            <option>css</option>
+        </select>
+
+        <p>选择的项是：{{selected}} </p>
+
+    </div>
+
+    <div id="app6">
+        <select v-model="selected">
+
+            <option v-for='option in options' :value='option.value'>{{option.text}} </option>
+
+        </select>
+
+        <p>选择的项是：{{selected}} </p>
+
+    </div>
+
+
+    <div id="app7">
+        <input type="radio" v-model='picked' :value='value'>
+        <label>单选按钮</label>
+
+        <p>{{picked}} </p>
+        <p>{{value}} </p>
+
+    </div>
+    <div id="app8">
+        <input type="checkbox" v-model='toggle' :true-value='value1' :false-value='value2'>
+        <label>复选框</label>
+
+        <p>{{toggle}} </p>
+        <p>{{value1}} </p>
+        <p>{{value2}} </p>
+
+    </div>
+
+    <!-- 这个也是没看懂 -->
+    <div id="app9">
+        <select v-model="selected">
+
+           <option v-bind:value='{number: 123}'>123</option>
+        </select>
+
+        {{selected.number}}
+
+    </div>
+
+    <script>
+        var app = new Vue({
+            el: '#app',
+            data: {
+                text: ''
+            }
+        })
+        var app1 = new Vue({
+            el: '#app1',
+            data: {
+                message: ''
+            },
+            methods: {
+                handleInput: function (e) {
+                    this.message = e.target.value
+                }
+            }
+        })
+
+        var app2 = new Vue({
+            el: '#app2',
+            data: {
+                picked: 'js'
+            }
+        })
+
+        var app3 = new Vue({
+            el: '#app3',
+            data: {
+                checked: ['html', 'css']
+            }
+        })
+        var app4 = new Vue({
+            el: '#app4',
+            data: {
+                selected: 'html'
+            }
+        })
+
+        var app5 = new Vue({
+            el: '#app5',
+            data: {
+                selected: ['html', 'js']
+            }
+        })
+
+        var app6 = new Vue({
+            el: '#app6',
+            data: {
+                options: [
+                    {
+                        text: 'HTML',
+                        value: 'html'
+
+                    },
+                    {
+                        text: 'JavaScript',
+                        value: 'js'
+
+                    },
+                    {
+                        text: 'CSS',
+                        value: 'css'
+
+                    },
+                ],
+                selected: 'html'
+            }
+        })
+
+        var app7 = new Vue({
+            el: '#app7',
+            data: {
+                picked: false,
+                value: 123
+            }
+        })
+
+        var app8 = new Vue({
+            el: '#app8',
+            data: {
+                toggle: false,
+                value1: 'a',
+                value2: 'b'
+            }
+        })
+        var app9 = new Vue({
+            el: '#app9',
+            data: {
+                selected:''
+            }
+        })
+
+    </script>
+
+</body>
+
+</html>
