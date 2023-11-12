@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="../css/font-awesome.min.css">
+    <style>
+        .box1 {
+            width: 200px;
+            height: 200px;
+            background-color: green;
+
+        }
+    </style>
+</head>
+
+<body>
+    <h1>给 box1 增加拖拽的属性</h1>
+    <!--给 box1 增加拖拽的属性-->
+    <div class="box1" draggable="true"></div>
+
+    <script>
+        var box = document.querySelector('.box1');
+        box.ondragstart = function (e) {
+            console.log('开始拖拽');
+            console.log(e);
+            // 设置拖拽的数据
+            e.dataTransfer.setData('id', 'box1');
+        }
+        box.ondragend = function (e) {
+            console.log('结束拖拽');
+            console.log(e);
+        }
+
+        //  拖拽离开：鼠标拖拽时离开被拖拽的元素时触发
+        box.ondragleave = function () {
+            console.log('拖拽离开..');
+        }
+        
+        box.ondrag = function () {
+            console.log('拖拽');
+        }
+
+
+    </script>
+</body>
+
+</html>

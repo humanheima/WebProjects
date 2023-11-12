@@ -11,7 +11,7 @@
 
 <body>
 
-    <form action="">
+    <form name="个人信息表单" action="" method="get">
         First name:<input type="text" name="firstname"><br>
         Last name:<input type="text" name="LastName"><br>
         Password:<input type="password" name="password"><br>
@@ -29,10 +29,10 @@
 
 
         <select name="cars">
-            <option value="volvo">volvo</option>
-            <option value="saab">saab</option>
-            <option value="fait">fait</option>
-            <option value="aodi">aodi</option>
+            <option value="volvo">沃尔沃</option>
+            <option value="saab">奔驰</option>
+            <option value="fait">奥迪</option>
+            <option value="aodi">宝马</option>
         </select>
 
         <h4>预先选择下拉列表框</h4>
@@ -46,7 +46,7 @@
         <h4>文本域</h4>
 
         <textarea rows="10" cols="30">
-            我是一个文本框。
+            我是一个文本框。豫章故郡，洪都新府。星分翼轸，地接衡庐。襟三江而带五湖，控蛮荆而引瓯越。物华天宝，龙光射牛斗之墟；人杰地灵，徐孺下陈蕃之榻。雄州雾列，俊采星驰。台隍枕夷夏之交，宾主尽东南之美。都督阎公之雅望，棨戟遥临；宇文新州之懿范，襜帷暂驻。十旬休假，胜友如云；千里逢迎，高朋满座。腾蛟起凤，孟学士之词宗；紫电青霜，王将军之武库。家君作宰，路出名区；童子何知，躬逢胜饯。
         </textarea>
 
         <h4>按钮</h4>
@@ -64,6 +64,15 @@
             <input type="submit" value="提交">
         </fieldset>
 
+        <fieldset>
+            <legend>其他信息</legend>
+            性别：<input type="radio" name="gender" value="male" checked="">男
+            <input type="radio" name="gender" value="female">女<br>
+            爱好：<input type="checkbox" name="love" value="eat">吃饭
+            <input type="checkbox" name="love" value="sleep">睡觉
+            <input type="checkbox" name="love" value="bat">打豆豆
+        </fieldset>
+
     </form>
 
     <form action="demo-form.php" method="get">
@@ -75,6 +84,12 @@
     <form action="demo-form.php" method="get">
         <input type="radio" name="sex" value="Male"> Male<br>
         <input type="radio" name="sex" value="Female" checked="checked"> Female<br>
+
+        <input type="radio" name="sex" id="nan" /> <label for="nan">男</label>
+        <br>
+        <input type="radio" name="sex" id="nv" /> <label for="nv">女</label>
+        <br>
+
         <input type="submit" value="提交">
     </form>
 

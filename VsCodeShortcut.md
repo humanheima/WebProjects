@@ -1,10 +1,84 @@
-### vs code 快捷键
+# vs code 快捷键
 
+### 1. 工作区快捷键
+
+* cmd + B : 显示/隐藏侧边栏
+* cmd + Shift + P : 显示命令面板
+* cmd + \ : 拆分为多个编辑器
+* cmd + 1/2/3 : 切换到第一个/第二个/第三个编辑器
+* cmd + +/- : 放大/缩小编辑器字体
+* cmd + Shift + V : 预览 Markdown
+* cmd + J : 显示/隐藏终端
+* cmd + Shift + N : 新建一个 VS Cdoe窗口
+* cmd + Shift + W : 关闭 VS Code窗口
+* cmd + W : 关闭当前文件
+* cmd + N : 新建文件
+
+### 2. 跳转操作
+
+* cmd + option + 左/右 : 在打开的多个文件之间进行切换
+* Ctrl + G : 跳转到指定行
+
+### 3.移动光标
+* option + 左右方向键 : 在单词之间移动光标
+* cmd + 左右方向键 : 在行首和行尾之间移动光标
+* Option + Alt + 左右方向键 : 左右扩大/缩小选中的范围
+* cmd + 上下方向键 : 移动到文件的开头和结尾
+
+### 4. 编辑操作
+
+* cmd + X : 剪切
+* cmd + C : 复制
+* cmd + V : 粘贴
+* cmd + Z : 撤销
+* cmd + Shift + Z : 恢复
+* cmd + D : 选中当前单词，重复可选中下一个相同的单词
+* cmd + Enter : 在当前行下方插入一行,即使光标不在行尾，也能快速向下插入一行
+* cmd + Shift + Enter : 在当前行上方插入一行
+* Option + Shift + 上下方向键 : 向上/向下复制当前行
+* Option + 上下方向键 : 向上/向下移动当前行
+
+### 5. 删除操作
+
+* cmd + shift + K : 删除当前行
+* option + delete : 删除光标之前的一个单词
+* cmd + delete  : 删除光标之前的整行内容
+
+### 6. 多光标选择、多光标编辑
+
+* Option + 鼠标连续点击任意位置 : 在任意位置，同时出现多个光标
+* cmd + shift + L : 将光标放在某个单词的位置（或者先选中某个单词），然后按下快捷键，则所有的相同内容处，都会出现光标。
+
+### 7. 多列选择/多列编辑
+
+
+* cmd + Option + 上下键 : 在当前行上方或下方插入光标，可用于同时编辑多行
+* option + shift + i : 选中多行，然后按下快捷键，则每行行尾都会出现光标
+
+### 8 编程语言相关
+* cmd + / : 添加注释
+* Option + Shift + F : 格式化代码
+  
+### 9. 搜索相关
+* cmd + P : 快速打开文件
+* cmd + F : 在当前文件中搜索，光标在搜索框里
+* cmd + G : 在当前文件中搜索，光标仍停留在编辑器里
+
+* cmd + Shift + F : 全局搜索
+多个搜索结果出来之后，按下 Enter 键之后跳转到下一个搜索结果，按下 上方向键 + Enter 键之后跳转到上一个搜索结果。
+
+### 鼠标操作
+* 在当前行的位置，鼠标三击，可以选中当前行。
+* 用鼠标单击文件的行号，可以选中当前行。
+* 在某个行号的位置，上下移动鼠标，可以选中多行。
+
+### 其他
+
+* 选中文本后，cmd + Shift + P : 显示命令面板，里面输入转换为大小写，可将选中的文本转换为大写或小写。
+* 使用命令行启动 VS Code : 在命令行中输入 `code .`，可将当前目录作为工作区打开。
+  
 1. option +shift + 下: 复制行
-2. command + x : 删除行
-3. option + shift + f : 格式化代码
-4. command + / : 添加注释
-5. command + 回车 : 换行
-6. command + L  然后 command + O open with live server
-7. command + D  选中下一个
-8. comman + shift + space 查看参数提示
+2. command + 回车 : 换行
+3. command + L  然后 command + O open with live server
+4. command + D  选中下一个
+5. command + shift + space 查看参数提示
