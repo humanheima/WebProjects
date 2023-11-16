@@ -2,7 +2,7 @@
 <html>
 
 <head>
-    <title>CSS 下拉菜单</title>
+    <title>下拉菜单实例，目前不好使</title>
     <meta charset="utf-8">
     <style>
         ul {
@@ -15,10 +15,16 @@
 
         li {
             float: left;
-
         }
 
-        li a,
+        li a {
+            display: inline-block;
+            color: white;
+            text-align: center;
+            padding: 14px 16px;
+            text-decoration: none;
+        }
+
         .dropbtn {
             display: inline-block;
             color: white;
@@ -27,14 +33,14 @@
             text-decoration: none;
         }
 
-        .dropdown {
-            display: inline-block;
-        }
-
         li a:hover,
         .dropdown:hover,
         .dropbtn {
             background-color: #111;
+        }
+
+        .dropdown {
+            display: inline-block;
         }
 
         .dropdown-content {
@@ -69,13 +75,11 @@
         <li><a href="#news">新闻</a></li>
         <div class="dropdown">
             <a href="#" class="dropbtn">下拉菜单</a>
-
             <div class="dropdown-content">
                 <a href="#">链接 1</a>
                 <a href="#">链接 2</a>
                 <a href="#">链接 3</a>
             </div>
-
         </div>
     </ul>
 

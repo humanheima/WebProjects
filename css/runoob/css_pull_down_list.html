@@ -5,46 +5,39 @@
     <title>CSS 下拉菜单</title>
     <meta charset="utf-8">
     <style>
+        /* id 为 dropdown的样式 */
         .dropdown {
             position: relative;
             display: inline-block;
         }
 
+        /* id为dropdown-content的样式 */
         .dropdown-content {
             display: none;
             position: absolute;
             background-color: #f9f9f9;
             min-width: 160px;
             box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+            padding: 12px 16px;
         }
 
-
+        /* 表示当鼠标移动到dropdown上的时候，dropdown-content的display模式改为block。*/
         .dropdown:hover .dropdown-content {
             display: block;
-        }
-
-        .desc {
-            padding: 15px;
-            text-align: center;
         }
     </style>
 </head>
 
 <body>
-
-    <h2>下拉图片</h2>
-    <p>移动鼠标到图片上显示下拉内容。</p>
-    ​
+    <h2>鼠标移动后出现下拉菜单</h2>
+    <p>将鼠标移动到指定元素上就能看到下拉菜单。</p>
     <div class="dropdown">
-        <img src="https://img-my.csdn.net/uploads/201407/26/1406383299_1976.jpg" alt="Trolltunga Norway" width="100"
-            height="50">
+        <span>鼠标移动到我这！</span>
         <div class="dropdown-content">
-            <img src="https://img-my.csdn.net/uploads/201407/26/1406383299_1976.jpg" alt="Trolltunga Norway" width="400"
-                height="200">
-            <div class="desc">学的不仅是技术，更是梦想！</div>
+            <p>菜鸟教程</p>
+            <p>www.runoob.com</p>
         </div>
     </div>
-
 </body>
 
 </html>
