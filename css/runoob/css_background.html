@@ -3,7 +3,7 @@
 
 <head>
 
-    <title>菜鸟教程(runoob.com)</title>
+    <title>背景 Background </title>
 
     <style>
         body {
@@ -22,12 +22,13 @@
             background-color: #b0c4de;
         }
 
+        /* id 选择器，只有id为 para1 才会使用这个样式  */
         #para1 {
-            background-image: url("https://img-my.csdn.net/uploads/201407/26/1406383299_1976.jpg")
+            background-image: url("https://static.runoob.com/images/mix/paper.gif")
         }
 
         #para2 {
-            background-image: url("https://img-my.csdn.net/uploads/201407/26/1406383299_1976.jpg");
+            background-image: url("https://static.runoob.com/images/mix/gradient2.png");
             /* 水平平铺 */
             background-repeat: repeat-x;
             /* 竖直平铺 */
@@ -35,14 +36,15 @@
         }
 
         #para3 {
-            background-image: url("https://img-my.csdn.net/uploads/201407/26/1406383299_1976.jpg");
+            background-image: url("https://static.runoob.com/images/mix/gradient2.png");
             /* 不平铺 */
             background-repeat: no-repeat;
             background-position: left bottom;
         }
 
         #para4 {
-            background: #e0ffff url("https://img-my.csdn.net/uploads/201407/26/1406383299_1976.jpg") no-repeat bottom right;
+            /* 一个background 属性，直接指定多项值 */
+            background: #e0ffff url("https://static.runoob.com/images/mix/img_tree.png") no-repeat top right;
             margin-left: 20px;
         }
     </style>

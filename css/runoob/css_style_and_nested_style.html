@@ -2,6 +2,7 @@
 <html>
 
 <head>
+    <title>CSS 分组 和 嵌套 选择器</title>
     <style>
         h1 {
             color: green;
@@ -22,19 +23,23 @@
             color: green;
         }
 
+        /* 为所有 p 元素指定一个样式。 */
         p {
             color: blue;
             text-align: center;
         }
 
+        /* 为所有 class="marked" 的元素指定一个样式。 */
         .marked {
             background-color: red;
         }
 
+        /* 为所有 class="marked" 元素内的 p 元素指定一个样式。 */
         .marked p {
             color: white;
         }
 
+        /* 为所有 class="marked" 的 p 元素指定一个样式。 */
         p.marked {
             text-decoration: underline;
         }
