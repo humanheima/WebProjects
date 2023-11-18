@@ -3,7 +3,7 @@
 
 <head>
     <meta charset="utf-8">
-    <title>菜鸟教程(runoob.com)</title>
+    <title>使用函数来构造对象</title>
 </head>
 
 <body>
@@ -28,9 +28,8 @@
         var text = "";
         var person = { fname: "Bill", lname: "Gates", age: 56 };
         for (x in person) {
-            text = text + person[x];
+            text = text + person[x] +"<br>";
         }
-
         document.write(text);
     </script>
 
