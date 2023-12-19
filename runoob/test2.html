@@ -3,19 +3,28 @@
 
 <head>
     <title>Vue.js条件语句</title>
+
     <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
 
 </head>
 
 <body>
 
+    <div>
+        <p>
+            <a href="https://www.runoob.com/vue3/vue3-v-if.html" target="_blank">
+                参考链接
+            </a>
+        </p>
+    </div>
     <div>条件判断使用 v-if 指令:在元素 和 template 中使用 v-if 指令：</div>
     <div id="app">
         <p v-if="seen">现在你看到我了</p>
         <template v-if="ok">
-            <h1>菜鸟教程</h1>
-            <p>学的不仅是技术，更是梦想！</p>
-            <p>哈哈哈，打字辛苦啊！！！</p>
+            <h1>网站</h1>
+            <p>Google</p>
+            <p>Runoob</p>
+            <p>Taobao</p>
         </template>
     </div>
 
@@ -48,8 +57,8 @@
     <hr>
     <div>我们也可以使用 v-show 指令来根据条件展示元素：</div>
     <div id="app3">
-            <h1 v-show="ok">Hello!</h1>
-        </div>
+        <h1 v-show="ok">Hello!</h1>
+    </div>
 
     <script src="test2.js"></script>
 </body>

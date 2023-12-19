@@ -5,6 +5,7 @@ new Vue({
   el: '#app',
 })
 
+
 var Child = {
   template: '<h1>自定义组件！</h1>'
 }
@@ -15,14 +16,15 @@ new Vue({
   el: '#app1',
   components: {
     // <runoob> 将只在父模板可用
+    //注册局部组件，组件名叫做'runoob1'
     'runoob1': Child
   }
 })
 
 
-Vue.component('child', {
-  props: ['message'],
-  template: '<span>{{ message }}</span>'
+Vue.component('site-name', {
+  props: ['title'],
+  template: '<h4>title :{{ title }}</h4>',
 })
 
 new Vue({
@@ -138,9 +140,9 @@ Vue.component('button-counter2', {
 
   data: function () {
     // data 选项是一个函数，组件不相互影响
-      return {
-          count: 0
-      }
+    return {
+      count: 0
+    }
   },
   // data: function () {
   //     // data 选项是一个对象，会影响到其他实例

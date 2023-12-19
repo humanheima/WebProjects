@@ -9,6 +9,11 @@
 
 <body>
 
+    <p>
+        <a href="https://www.runoob.com/vue3/vue3-v-for.html" target="_blank">
+            参考链接:
+        </a>
+    </p>
     <div>循环使用 v-for 指令。v-for 可以绑定数据到数组来渲染一个列表</div>
 
     <div id="app">
@@ -57,6 +62,15 @@
             </li>
         </ul>
     </div>
+
+    <div id="app5">
+        <ul>
+            <li v-for="n in evenNumbers">{{ n }}</li>
+          </ul>
+    </div>
+
+
+
     <script src="test3.js"></script>
 </body>
 
