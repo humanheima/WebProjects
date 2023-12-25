@@ -19,6 +19,9 @@
         <runoob></runoob>
 
         <button-counter></button-counter>
+        <button-counter></button-counter>
+        <button-counter></button-counter>
+
     </div>
 
 
@@ -28,11 +31,12 @@
         // 创建一个Vue 应用
         const app = Vue.createApp({})
 
-        // 定义一个名为 runoob 的新全局组件
+        // 定义一个名为 runoob 的全局组件
         app.component('runoob', {
             template: '<h1>自定义组件!</h1>'
         })
 
+        // 定义一个名为 button-counter 的全局组件
         app.component('button-counter', {
 
             data() {
