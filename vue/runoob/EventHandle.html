@@ -4,6 +4,7 @@
 <head>
     <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
 
+    <title>VUE3 事件处理</title>
 </head>
 
 <body>
@@ -12,7 +13,7 @@
     <!-- 监听事件 -->
     <div id="example-1">
         <!-- 直接把处理逻辑写在指令中了 -->
-        <button v-on:click="counter += 1">Add 1</button>
+        <button v-on:click="counter += 1">增加 1</button>
         <p>The button above has been clicked {{ counter }} times.</p>
     </div>
 
@@ -23,13 +24,27 @@
     </div>
 
     <!-- 内联处理器中的方法 -->
+
+    <br/>
+    <div>除了直接绑定到一个方法，也可以用内联 JavaScript 语句：</div>
     <div id="example-3">
         <button v-on:click="say('hi')">Say hi</button>
         <button v-on:click="say('what')">Say what</button>
     </div>
 
+    <br/>
+    <div>事件处理程序中可以有多个方法，这些方法由逗号运算符分隔：</div>
+    <div id="example-5">
+        <!-- 这两个 one() 和 two() 将执行按钮点击事件 -->
+        <button @click="one($event), two($event)">
+            点我
+        </button>
+    </div>
+
     <!-- 有时也需要在内联语句处理器中访问原始的 DOM 事件。可以用特殊变量 $event 把它传入方法 -->
 
+    <br/>
+    <div>有时也需要在内联语句处理器中访问原始的 DOM 事件。可以用特殊变量 $event 把它传入方法</div>
     <div id="example-4">
         <button v-on:click="warn('Form cannot be submitted yet.', $event)">
             Submit

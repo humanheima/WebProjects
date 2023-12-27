@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>Vue3表单</title>
+    <script src="https://cdn.staticfile.org/vue/3.0.5/vue.global.js"></script>
+</head>
+
+<body>
+    <div id="app">
+        <p>input 元素：</p>
+        <input v-model="message" placeholder="编辑我……">
+        <p>input 表单消息是: {{ message }}</p>
+
+        <p>textarea 元素：</p>
+        <textarea v-model="message2" placeholder="多行文本输入……"></textarea>
+        <p>textarea 表单消息是:</p>
+        <p style="white-space: pre">{{ message2 }}</p>
+
+    </div>
+
+    <script>
+        const app = {
+            data() {
+                return {
+                    message: '',
+                    message2: '菜鸟教程\r\nhttps://www.runoob.com'
+                }
+            }
+        }
+
+        Vue.createApp(app).mount('#app')
+    </script>
+</body>
+
+</html>

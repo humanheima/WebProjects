@@ -34,6 +34,20 @@ new Vue({
         }
     }
 })
+
+new Vue({
+    el: '#example-5',
+    methods: {
+        one(event) {
+            alert("第一个事件处理器逻辑...")
+        },
+        two(event) {
+            alert("第二个事件处理器逻辑...")
+        }
+    }
+})
+
+
 new Vue({
     el: '#example-4',
     methods: {
