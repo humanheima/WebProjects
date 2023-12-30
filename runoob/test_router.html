@@ -4,13 +4,13 @@
 <head>
     <meta charset="utf-8">
     <title>Vue.js 路由</title>
-    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
-    <script src="https://unpkg.com/vue-router/dist/vue-router.js"></script>
+    <script src="https://cdn.staticfile.org/vue/3.2.31/vue.global.min.js"></script>
+    <script src="https://cdn.staticfile.org/vue-router/4.2.4/vue-router.global.min.js"></script>
 
     <style>
-        ._active{
-            background-color : red;
-        }
+        /* ._active {
+            background-color: red;
+        } */
     </style>
 </head>
 
@@ -33,14 +33,15 @@
             <!-- 使用 router-link 组件来导航. -->
             <!-- 通过传入 `to` 属性指定链接. -->
             <!-- <router-link> 默认会被渲染成一个 `<a>` 标签 -->
-            <router-link to="/foo" active-class="_active">Go to Foo</router-link>
-            <router-link to="/bar" exact-active-class="_active">Go to Bar</router-link>
+            <router-link to="/foo">Go to Foo</router-link>
+            <br>
+            <br>
+            <router-link to="/bar">Go to Bar</router-link>
         </p>
         <!-- 路由出口 -->
         <!-- 路由匹配到的组件将渲染在这里 -->
         <router-view></router-view>
     </div>
-
     <br>
     <br>
     <div>&#60;router-link&#62; 相关属性</div>
@@ -48,13 +49,9 @@
     <div>to</div>
     <span>表示目标路由的链接。 当被点击后，内部会立刻把 to 的值传到 router.push()，所以这个值可以是一个字符串或者是描述目标位置的对象。</span>
     <div>
-
-
-
-
         <a href="https://www.runoob.com/vue2/vue-routing.html">Vue.js 路由
         </a>
-    <script src="test11.js"></script>
+        <script src="test_router.js"></script>
 </body>
 
 </html>

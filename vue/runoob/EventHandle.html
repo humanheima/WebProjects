@@ -12,8 +12,9 @@
     <h1>事件处理</h1>
     <!-- 监听事件 -->
     <div id="example-1">
-        <!-- 直接把处理逻辑写在指令中了 -->
+        <!-- 直接把 JavaScript代码 处理逻辑写在指令中了 -->
         <button v-on:click="counter += 1">增加 1</button>
+        <p>这个按钮被点击了 {{ counter }} 次。</p>
         <p>The button above has been clicked {{ counter }} times.</p>
     </div>
 
