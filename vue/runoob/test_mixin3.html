@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>Vue3 mixin 函数合并</title>
+    <script src="https://cdn.staticfile.org/vue/3.2.31/vue.global.min.js"></script>
+</head>
+
+<body>
+    <div>从输出结果 methods 选项中如果碰到相同的函数名则 Vue 实例有更高的优先级会执行输出。</div>
+    <div id="app">
+        <p> {{ foo() }} </p>
+        <p> {{ bar() }} </p>
+        <p> {{ conflicting() }} </p>
+    </div>
+    <script type="text/javascript">
+        const myMixin = {
+            methods: {
+                foo() {
+                    console.log('foo')
+                    return 'foo'
+                },
+                conflicting() {
+                    console.log('from mixin')
+                    return 'from mixin'
+                }
+            }
+        }
+
+        const app = Vue.createApp({
+            mixins: [myMixin],
+            methods: {
+                bar() {
+                    console.log('bar')
+                    return 'bar'
+                },
+                conflicting() {
+                    console.log('from self')
+                    return 'from self'
+                }
+            }
+        })
+
+        const vm = app.mount('#app')
+
+        // vm.foo() // => "foo"
+        // vm.bar() // => "bar"
+        // vm.conflicting() // => "from self"
+    </script>
+</body>
+
+</html>

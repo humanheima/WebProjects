@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>Vue3 mixin 选项合并</title>
+    <script src="https://cdn.staticfile.org/vue/3.2.31/vue.global.min.js"></script>
+</head>
+
+<body>
+
+    <div>在和组件的数据发生冲突时以组件数据优先。所以最终输出的message是goodbye</div>
+    <div id="app"></div>
+    <script type="text/javascript">
+        const myMixin = {
+            data() {
+                return {
+                    message: 'hello',
+                    foo: 'runoob'
+                }
+            }
+        }
+
+        const app = Vue.createApp({
+            mixins: [myMixin],
+            data() {
+                return {
+                    message: 'goodbye',
+                    bar: 'def'
+                }
+            },
+            created() {
+                document.write(JSON.stringify(this.$data))
+            }
+        })
+
+        app.mount('#app')
+    </script>
+</body>
+
+</html>
